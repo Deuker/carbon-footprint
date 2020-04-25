@@ -54,7 +54,10 @@ app.locals.title = 'Carbon Footprint';
 const index = require('./routes/index');
 app.use('/', index);
 
+const authRoutes = require("./routes/auth");
+app.use('/auth', authRoutes);
+
 
 module.exports = app;
 
-app.listen
+app.listen(3000, () => console.log("Carbon Footprint is listening to PORT 3000"));
