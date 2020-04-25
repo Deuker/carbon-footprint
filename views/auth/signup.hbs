@@ -1,0 +1,15 @@
+{{!-- added 24.04. --}}
+
+<h1>This represents the signup page</h1>
+{{!-- action defines where it will get sended to --}}
+<form id="form" action="/auth/signup" method="POST">
+  <label for="email">Email</label/>
+  <input type="text" name="email" placeholder="enter your email adress here"/>
+
+  <label for="password">Password</label>
+  {{! change type to "password" to make the entered password invisible}}
+  <input type="password" name="text" placeholder="create a password"/>
+
+  <button type="submit">SignUp</button>
+
+</form>
