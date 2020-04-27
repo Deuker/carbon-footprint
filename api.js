@@ -1,4 +1,5 @@
 const axios = require("axios");
+const Airport = require("./models/Airport");
 
 // curl - H "Accept: application/json" - u username: password \
 const url =
