@@ -18,4 +18,4 @@ Last actions:
 
 
 - bcrypt installed and adjusted in app.js
-- 
+- userpage. js in routes + new view were created

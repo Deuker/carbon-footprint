@@ -1,4 +1,5 @@
 const axios = require("axios");
+const Airport = require("./models/Airport");
 
 // curl - H "Accept: application/json" - u username: password \
 const url =
@@ -25,3 +26,8 @@ axios
   .catch((err) => {
     console.log(err);
   });
+
+// let testCall = db.getCollection("airportsIATA");
+// testCall.db.collection.find({ municipality: "Barcelona" }).then((response) => {
+//   console.log(response);
+// });
