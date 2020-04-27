@@ -4,12 +4,22 @@
 {{!-- action defines where it will get sended to --}}
 <form id="form" action="/auth/signup" method="POST">
   <label for="email">Email</label/>
-  <input type="text" name="email" placeholder="enter your email adress here"/>
+  <input id="email" type="text" name="email" placeholder="enter your email adress here"/>
 
   <label for="password">Password</label>
   {{! change type to "password" to make the entered password invisible}}
-  <input type="password" name="password" placeholder="create a password"/>
+  <input id="password" type="password" name="password" placeholder="create a password"/>
 
-  <button type="submit">SignUp</button>
+  {{#if message}}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+  <br><br>
+
+  <button type="submit">Create Account</button>
+
+  <p class="account-message">
+    Do you already have an account?
+    <a href="/auth/login">Login here</a>
+  </p>
 
 </form>
