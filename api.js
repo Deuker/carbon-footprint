@@ -25,3 +25,8 @@ axios
   .catch((err) => {
     console.log(err);
   });
+
+// let testCall = db.getCollection("airportsIATA");
+// testCall.db.collection.find({ municipality: "Barcelona" }).then((response) => {
+//   console.log(response);
+// });
