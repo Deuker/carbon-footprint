@@ -16,3 +16,6 @@ Last actions:
 - npm install
 - npm install anxios
 
+
+- bcrypt installed and adjusted in app.js
+- 
