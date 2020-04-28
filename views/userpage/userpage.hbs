@@ -1,8 +1,25 @@
 <h1>this represents the userpage</h1>
 
+
+
+<form action="/userpage" method="POST">
+  <div>
+    <label for="pointA">PointA:</label>
+    <input type="text" name="pointA">
+
+  </div>
+  <div>
+    <label for="pointB">PointB:</label>
+    <input type="text" name="pointB">
+  </div>
+  <button type="submit">Search</button>
+
+</form>
+
+
 <p>Private page</p>
 {{#if user}}
-  <div>
-    <a href="/">Logout</a>
-  </div>
+<div>
+  <a href="/">Logout</a>
+</div>
 {{/if}}

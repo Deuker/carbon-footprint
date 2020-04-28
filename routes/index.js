@@ -11,13 +11,13 @@ const loginCheck = () => {
     if (req.session.user) {
       next();
     } else {
-      res.redirect('/login');
+      res.redirect("/login");
     }
   };
 };
 
-router.get('/userpage', loginCheck(), (req, res) => {
-  res.render('/userpage/userpage');
+router.get("/userpage", loginCheck(), (req, res) => {
+  res.render("/userpage/userpage");
 });
 
 module.exports = router;
