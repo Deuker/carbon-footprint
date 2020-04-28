@@ -1,5 +1,42 @@
-
-<div>
-  <p>{{results}}</p>
+<div class="resultsTable">
+  {{data}}
+  {{#each results}}
+  <div class="co2results">
+    <div>{{this.unit}}</div>
+    <div>{{this.default}}</div>
+    <div>{{this.type}}</div>
+    <div>{{this.value}}</div>
+  </div>
+  {{/each}}
 </div>
+
+
+<h1>this represents the userpage</h1>
+
+
+
+<form action="/searchresults" method="POST">
+  <div>
+    <label for="pointA">PointA:</label>
+    <input type="text" name="pointA">
+
+  </div>
+  <div>
+    <label for="pointB">PointB:</label>
+    <input type="text" name="pointB">
+  </div>
+  <button type="submit">Search</button>
+
+</form>
+
+
+<p>Private page</p>
+{{#if user}}
+<div>
+  <a href="/">Logout</a>
+</div>
+
+{{/if}}
+<button class="waddup">Press here for waddup</button>
+<h1 class="changeMe">change here</h1>
 
