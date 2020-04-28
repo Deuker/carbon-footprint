@@ -138,8 +138,8 @@ app.use("/auth", authRoutes);
 const userpage = require("./routes/userpage");
 app.use("/userpage/userpage", userpage);
 
-// const searchresults = require("./routes/searchresults");
-// app.use("/searchresults", searchresults);
+const searchresults = require("./routes/searchresults");
+app.use("/", searchresults);
 
 module.exports = app;
 
