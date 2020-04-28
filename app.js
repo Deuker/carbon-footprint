@@ -1,21 +1,19 @@
+require("dotenv").config();
 
-require('dotenv').config();
-
-const bodyParser   = require('body-parser');
-const cookieParser = require('cookie-parser');
-const express      = require('express');
-const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
-const path         = require('path');
-const session      = require('express-session');
-const bcrypt       = require('bcrypt');
-const flash        = require('connect-flash');
-const passport     = require('passport');
-const LocalStrategy= require('passport-local').Strategy;
-const User         = require('./models/User');
-
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const express = require("express");
+const favicon = require("serve-favicon");
+const hbs = require("hbs");
+const mongoose = require("mongoose");
+const logger = require("morgan");
+const path = require("path");
+const session = require("express-session");
+const bcrypt = require("bcrypt");
+const flash = require("connect-flash");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const User = require("./models/User");
 
 mongoose
   .connect("mongodb://localhost/project-carbon-footprint", {
@@ -56,20 +54,23 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({
-  secret: "our-passport-local-strategy-app",
-  resave: true,
-  saveUninitialized: true
-}));
-
+app.use(
+  session({
+    secret: "our-passport-local-strategy-app",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
 // Express View engine setup
 
-app.use(require('node-sass-middleware')({
-  src:  path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  sourceMap: true
-}));
+app.use(
+  require("node-sass-middleware")({
+    src: path.join(__dirname, "public"),
+    dest: path.join(__dirname, "public"),
+    sourceMap: true,
+  })
+);
 
 // Initialize Passport Setup and Passport Sessions
 
@@ -79,44 +80,46 @@ passport.serializeUser((user, cb) => {
 
 passport.deserializeUser((id, cb) => {
   User.findById(id, (err, user) => {
-    if (err) { return cb(err); }
+    if (err) {
+      return cb(err);
+    }
     cb(null, user);
   });
 });
 
 app.use(flash());
-passport.use(new LocalStrategy({
-  passReqToCllback: true,
-  usernameField: "email",
-  passwordField: "password"
-}, (email, password, next) => {
-  User.findOne({ email }, (err, user) => {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return next(null, false, { message: "Incorrect username" });
-    }
-    if (!bcrypt.compareSync(password, user.password)) {
-      return next(null, false, { message: "Incorrect password" });
-    }
+passport.use(
+  new LocalStrategy(
+    {
+      passReqToCllback: true,
+      usernameField: "email",
+      passwordField: "password",
+    },
+    (email, password, next) => {
+      User.findOne({ email }, (err, user) => {
+        if (err) {
+          return next(err);
+        }
+        if (!user) {
+          return next(null, false, { message: "Incorrect username" });
+        }
+        if (!bcrypt.compareSync(password, user.password)) {
+          return next(null, false, { message: "Incorrect password" });
+        }
 
-    return next(null, user);
-  });
-}));
-
-
+        return next(null, user);
+      });
+    }
+  )
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
-
-
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
+app.use(express.static(path.join(__dirname, "public")));
+app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
@@ -131,6 +134,12 @@ app.use("/", index);
 
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
+
+const userpage = require("./routes/userpage");
+app.use("/userpage/userpage", userpage);
+
+// const searchresults = require("./routes/searchresults");
+// app.use("/searchresults", searchresults);
 
 module.exports = app;
 
