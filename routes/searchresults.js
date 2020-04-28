@@ -41,7 +41,7 @@ router.post("/searchresults", (req, res, next) => {
             },
           })
           .then((response) => {
-            const results = response.data.output.amounts[0];
+            const results = response.data.output.amounts;
             console.log("Banana", results);
             res.render("userpage/searchresults", { results });
           })
@@ -56,5 +56,8 @@ router.post("/searchresults", (req, res, next) => {
 router.get("/searchresults", (req, res, next) => {
   res.render("userpage/searchresults");
 });
+// router.get("/example", (req, res) => {
+//   res.send("WADDDDDDDUUUUUP");
+// });
 
 module.exports = router;

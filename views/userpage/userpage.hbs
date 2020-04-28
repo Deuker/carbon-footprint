@@ -23,3 +23,18 @@
   <a href="/">Logout</a>
 </div>
 {{/if}}
+<button class="waddup">Press here for waddup</button>
+<h1 class="changeMe">change here</h1>
+<script>
+  document.querySelector(".waddup").onclick = () => {
+    axios.get("http://localhost:3000/searchresults").then(response => {
+      console.log(response.data)
+      document.querySelector(".changeMe").innerText = response.data
+
+    }).catch(err => {
+      console.log(err)
+    });
+  }
+
+
+</script>
