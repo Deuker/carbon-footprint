@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+
 const Airport = require("../models/Airport");
 // const ensureLogin = require("connect-ensure-login");
 
@@ -39,3 +40,4 @@ router.post("/userpage", (req, res) => {
 });
 
 module.exports = router;
+
