@@ -1,17 +1,17 @@
 <div class="resultsTable">
-  {{data}}
+  <h1>{{departure}} - {{destination}} </h1>
   {{#each results}}
   <div class="co2results">
-    <div>{{this.unit}}</div>
-    <div>{{this.default}}</div>
-    <div>{{this.type}}</div>
-    <div>{{this.value}}</div>
+
+    <div>{{this.type}}: {{this.value}} {{this.unit}} </div>
+
   </div>
+
   {{/each}}
 </div>
 
 
-<h1>this represents the userpage</h1>
+
 
 
 
