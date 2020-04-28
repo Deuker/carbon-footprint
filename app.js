@@ -136,7 +136,7 @@ const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
 
 const userpage = require("./routes/userpage");
-app.use("/userpage/userpage", userpage);
+app.use("/", userpage);
 
 const searchresults = require("./routes/searchresults");
 app.use("/", searchresults);
