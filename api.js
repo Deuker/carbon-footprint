@@ -12,8 +12,8 @@ const modelName = "Great_Circle_flight_methodology";
 axios
   .get(url, {
     params: {
-      "values.IATACode1": "BCN",
-      "values.IATACode2": "SXF",
+      "values.IATACode1": "TXL",
+      "values.IATACode2": "BCN",
     },
     auth: {
       username: username,
@@ -26,8 +26,3 @@ axios
   .catch((err) => {
     console.log(err);
   });
-
-// let testCall = db.getCollection("airportsIATA");
-// testCall.db.collection.find({ municipality: "Barcelona" }).then((response) => {
-//   console.log(response);
-// });
