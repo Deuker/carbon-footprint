@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const routeSchema = new Schema({
-  startingPoint: String,
-  arrivalPoint: String,
+  pointA: String,
+  pointB: String,
   distance: Number,
   transportType: String,
   date: Date,
