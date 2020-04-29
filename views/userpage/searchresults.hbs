@@ -1,5 +1,41 @@
+<div class="resultsTable">
+  <h1>{{departure}} - {{destination}} </h1>
+  {{#each results}}
+  <div class="co2results">
 
-<div>
-  <p>{{results}}</p>
+    <div>{{this.type}}: {{this.value}} {{this.unit}} </div>
+
+  </div>
+
+  {{/each}}
 </div>
 
+</br>
+
+
+
+
+<form action="/searchresults" method="POST">
+  <div>
+    <label for="pointA">PointA:</label>
+    <input type="text" name="pointA">
+
+  </div>
+  <div>
+    <label for="pointB">PointB:</label>
+    <input type="text" name="pointB">
+  </div>
+  <button type="submit">Search</button>
+
+</form>
+
+
+<p>Private page</p>
+{{#if user}}
+<div>
+  <a href="/">Logout</a>
+</div>
+
+{{/if}}
+<button class="waddup">Press here for waddup</button>
+<h1 class="changeMe">change here</h1>

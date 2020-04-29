@@ -12,18 +12,19 @@ router.get("/searchresults", (req, res, next) => {
 
 
 //Create Routes
-/*
-router.post('/searchresults', (req, res, next) => {
-  const { pointA, pointB } = req.body;
-  const newRoute = new Route ({ pointA, pointB });
-  newRoute.save()
-  .then((route) => {
-    res.redirect('userpage/searchresults');
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-});
-*/
+
+// router.post('/searchresults', (req, res, next) => {
+//   const { pointA, pointB } = req.body;
+//   const newRoute = new Route ({ pointA, pointB });
+//   newRoute.save()
+//   .then((route) => {
+//     res.redirect('userpage/searchresults');
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+// });
+
+
 
 module.exports = router;

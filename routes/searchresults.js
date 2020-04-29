@@ -13,16 +13,17 @@ const modelName = "Great_Circle_flight_methodology";
 // use http basic authentication by passing a second parameter after the url
 
 router.post("/searchresults", (req, res, next) => {
-  console.log("working bruh?");
+  const departure = req.body.pointA;
+  const destination = req.body.pointB;
 
-  Airport.find({ municipality: req.body.pointA })
+  Airport.find({ municipality: departure })
     .then((data) => {
       data = data.filter((el) => el && el.iata_code);
       console.log(data[0].iata_code);
       const codeA = data[0].iata_code;
 
       // res.render("userpage/searchresults", { codeA });
-      Airport.find({ municipality: req.body.pointB }).then((data) => {
+      Airport.find({ municipality: destination }).then((data) => {
         data = data.filter((el) => el && el.iata_code);
         // console.log(data[0].iata_code);
         const codeB = data[0].iata_code;
@@ -42,8 +43,15 @@ router.post("/searchresults", (req, res, next) => {
           })
           .then((response) => {
             const results = response.data.output.amounts;
-            console.log(“Banana”, results);
-            res.render(“userpage/searchresults”, { results });
+          
+          
+            console.log("Banana", results);
+            res.render("userpage/searchresults", {
+              results,
+              departure,
+              destination,
+            });
+
           })
           .catch((err) => {
             console.log(err);
@@ -56,5 +64,8 @@ router.post("/searchresults", (req, res, next) => {
 router.get("/searchresults", (req, res, next) => {
   res.render("userpage/searchresults");
 });
+// router.get("/example", (req, res) => {
+//   res.send("WADDDDDDDUUUUUP");
+// });
 
 module.exports = router;

@@ -5,17 +5,23 @@ mongoose.connect("mongodb://localhost/project-carbon-footprint", {
   useNewUrlParser: true,
 });
 
-// const test = Airport.deleteMany({
-//   type: "small_airport",
-//   type: "closed",
-//   type: "heliport",
-//   type: "medium_airport",
-//   type: "seaplane_base",
-// })
-//   .then((results) => {
-//     console.log(results);
-//   })
-//   .catch((error) => {
-//     console.log(error, "error");
-//   });
-
+const test = Airport.create({
+  ident: "Hello",
+  type: "I",
+  name: "Am",
+  elevation_ft: "THE",
+  continent: "TEST",
+  iso_country: "AIRPORT",
+  iso_region: "PLS",
+  municipality: "DELETE",
+  gps_code: "ME",
+  iata_code: "A",
+  local_code: "S",
+  coordinates: "AP",
+})
+  .then((results) => {
+    console.log("Yaaay");
+  })
+  .catch((error) => {
+    console.log(error, "error");
+  });
