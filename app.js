@@ -15,12 +15,14 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/User");
 
-
 mongoose
-  
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/project-carbon-footprint", {
+
+  .connect(
+    process.env.MONGODB_URI || "mongodb://localhost/project-carbon-footprint",
+    {
       useNewUrlParser: true,
-  })
+    }
+  )
   /*
   .connect("mongodb://localhost/project-carbon-footprint", {
     useNewUrlParser: true,
@@ -146,7 +148,10 @@ const userpage = require("./routes/userpage");
 app.use("/", userpage);
 
 const searchresults = require("./routes/searchresults");
-app.use("/userpage/searchresults", searchresults);
+app.use("/", searchresults);
+
+// const savedresults = require("./routes/saved-results");
+// app.use("/", savedresults);
 
 module.exports = app;
 

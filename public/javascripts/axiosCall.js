@@ -27,11 +27,11 @@
 
   })
   console.log(route)*/ 
-axios
-  .get("/save-routes")
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// axios
+//   .get("/save-routes")
+//   .then((response) => {
+//     console.log(response);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });

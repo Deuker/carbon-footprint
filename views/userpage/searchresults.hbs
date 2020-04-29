@@ -8,14 +8,14 @@
   {{/each}}
 </div>
 
-
+<button class="waddup">Save this route </button>
+<h1 class="changeMe">change here</h1>
 
 
 <script>
-
-  document.querySelector(".waddup").onclick = (e) => {
+  document.querySelector(".waddup").onclick = () => {
     console.log(axios)
-    const data = {
+    const route = {
       pointA: "",
       pointB: "",
       distance: 0,
@@ -34,46 +34,24 @@
       const string = elem.innerHTML.split(" ")
       const key = string[0].slice(0, string[0].length - 1)
       console.log(key)
-      const value = parseFloat(string[1])
+      const value = Math.round(parseFloat(string[1]))
       route[key] = value
-
     })
-    console.log(data)
-    axios.post("/allsearchresults", data).then(response => {
+    console.log("What a surprise, smth is working ")
+    axios.post("/saved-routes", route).then(response => {
       console.log('waddup');
       document.querySelector(".changeMe").innerText = 'changed after reponse';
-
+      window.location.replace("http://localhost:3000/saved-routes");
     }).catch(err => {
       console.log(err)
     });
   }
 
-
-
-
-  /*document.querySelector(".waddup").onclick = () => {
-       const data = {
-         destination: 'Munich'
-       }
-     axios.post("/allsearchresults", data).then(response => {
-       console.log('waddup');
-       document.querySelector(".changeMe").innerText = 'changed after reponse';
-
-     }).catch(err => {
-       console.log(err)
-     });
-   } */
-
-
 </script>
-​
 
 
 </br>
 
-
-<button class="waddup"><a href="/allRoutes">Save this route</a> </button>
-<h1 class="changeMe">change here</h1>
 
 
 <form action="/searchresults" method="POST">

@@ -10,14 +10,14 @@ const userSchema = new Schema({
   routes: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Route'
-    }
+      ref: "Route",
+    },
   ],
   // adding first Name & last Name?
   // adding Route Array of Objects
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;
 
 /*

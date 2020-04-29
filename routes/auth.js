@@ -62,6 +62,7 @@ router.post(
 );
 
 router.get("/userpage", ensureLogin.ensureLoggedIn(), (req, res) => {
+  console.log("USER", req.user);
   res.render("userpage/userpage", { user: req.user });
 });
 
