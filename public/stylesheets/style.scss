@@ -1,5 +1,6 @@
 body {
-  padding: 50px;
+  padding: 0px;
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   // background-image: url("/images/white-airliner-wing-on-top-of-sea-clouds-2007401.jpg");
   // background-size: 100%;
@@ -9,4 +10,97 @@ h1 {
 }
 a {
   color: #00b7ff;
+}
+
+// Main Page - Navigation Bar
+// Add a black background color to the top navigation
+.topnav {
+  background-color: #3f6e7b;
+  overflow: hidden;
+}
+
+// Style the links inside the navigation bar
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+// Change the color of links on hover
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+// Add a color to the active/current link
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+//Main Page - Background
+.background {
+  background-image: url();
+}
+
+#getstarted {
+  color: red;
+  text-decoration: null;
+  
+}
+
+// Auth Pages start here
+
+#authtext {
+  color: #666;
+  margin: 30px auto;
+  width: 380px;
+  text-align: center;
+}
+
+#authform {
+  margin: 30px auto;
+  width: 380px;
+}
+ 
+#authform label {
+  color: #666;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+ 
+#authform input,
+#authform button {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+ 
+#authform button {
+  background: #3f6e7b;
+  border: 1px solid #3f6e7b;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .3s ease background;
+  width: 100%;
+}
+ 
+#authform button:hover {
+  background: #fff;
+  color: #43a3e6;
+  transition: .3s ease background;
 }

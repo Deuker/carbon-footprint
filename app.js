@@ -15,10 +15,17 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/User");
 
+
 mongoose
+  
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/project-carbon-footprint", {
+      useNewUrlParser: true,
+  })
+  /*
   .connect("mongodb://localhost/project-carbon-footprint", {
     useNewUrlParser: true,
   })
+  */
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -127,7 +134,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
-app.locals.title = "Carbon Footprint";
+app.locals.title = "Clever Travel";
 
 const index = require("./routes/index");
 app.use("/", index);

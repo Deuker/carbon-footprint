@@ -6,8 +6,8 @@ const Airport = require("../models/Airport");
 // curl - H "Accept: application/json" - u username: password \
 const url =
   "https://api.carbonkit.net/3.6/categories/Great_Circle_flight_methodology/calculation?type=great+circle+route";
-const username = "VictoriaT";
-const password = "1234567890";
+const username = process.env.USERNAME;
+const password = process.env.PASSWORD;
 const modelName = "Great_Circle_flight_methodology";
 
 // use http basic authentication by passing a second parameter after the url
