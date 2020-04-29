@@ -3,8 +3,11 @@ body {
   margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
+h1 {
+  color: red; }
+
 a {
-  color: #00B7FF; }
+  color: #00b7ff; }
 
 .topnav {
   background-color: #3f6e7b;

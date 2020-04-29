@@ -1,17 +1,56 @@
 <div class="resultsTable">
-  <h1>{{departure}} - {{destination}} </h1>
+  <h1 id="points">{{departure}} - {{destination}} </h1>
   {{#each results}}
   <div class="co2results">
-
-    <div>{{this.type}}: {{this.value}} {{this.unit}} </div>
-
+    <div class="keys">{{this.type}}: {{this.value}} {{this.unit}} </div>
   </div>
 
   {{/each}}
 </div>
 
-</br>
+<button class="waddup">Save this route </button>
+<h1 class="changeMe">change here</h1>
 
+
+<script>
+  document.querySelector(".waddup").onclick = () => {
+    console.log(axios)
+    const route = {
+      pointA: "",
+      pointB: "",
+      distance: 0,
+      CO2: 0,
+      nitrousOxideCO2e: 0,
+      methaneCO2e: 0,
+      totalDirectCO2e: 0,
+      indirectCO2e: 0,
+      lifeCycleCO2e: 0,
+    }
+    const points = document.querySelector("#points").innerHTML.split(" - ")
+    console.log(points)
+    route.pointA = points[0]
+    route.pointB = points[1]
+    document.querySelectorAll(".keys").forEach(elem => {
+      const string = elem.innerHTML.split(" ")
+      const key = string[0].slice(0, string[0].length - 1)
+      console.log(key)
+      const value = Math.round(parseFloat(string[1]))
+      route[key] = value
+    })
+    console.log("What a surprise, smth is working ")
+    axios.post("/saved-routes", route).then(response => {
+      console.log('waddup');
+      document.querySelector(".changeMe").innerText = 'changed after reponse';
+      window.location.replace("http://localhost:3000/saved-routes");
+    }).catch(err => {
+      console.log(err)
+    });
+  }
+
+</script>
+
+
+</br>
 
 
 
@@ -25,17 +64,10 @@
     <label for="pointB">PointB:</label>
     <input type="text" name="pointB">
   </div>
-  <button type="submit">Search</button>
+  <button type="submit">New search</button>
 
 </form>
 
+<script src="/javascripts/axiosCall.js">
 
-<p>Private page</p>
-{{#if user}}
-<div>
-  <a href="/">Logout</a>
-</div>
-
-{{/if}}
-<button class="waddup">Press here for waddup</button>
-<h1 class="changeMe">change here</h1>
+</script>
