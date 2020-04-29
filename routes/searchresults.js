@@ -18,7 +18,7 @@ router.post("/searchresults", (req, res, next) => {
   Airport.find({ municipality: req.body.pointA })
     .then((data) => {
       data = data.filter((el) => el && el.iata_code);
-      // console.log(data[0].iata_code);
+      console.log(data[0].iata_code);
       const codeA = data[0].iata_code;
 
       // res.render("userpage/searchresults", { codeA });
@@ -41,9 +41,9 @@ router.post("/searchresults", (req, res, next) => {
             },
           })
           .then((response) => {
-            const results = response.data.output.amounts[0];
-            console.log("Banana", results);
-            res.render("userpage/searchresults", { results });
+            const results = response.data.output.amounts;
+            console.log(“Banana”, results);
+            res.render(“userpage/searchresults”, { results });
           })
           .catch((err) => {
             console.log(err);
