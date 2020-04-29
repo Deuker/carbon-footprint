@@ -139,7 +139,7 @@ const userpage = require("./routes/userpage");
 app.use("/", userpage);
 
 const searchresults = require("./routes/searchresults");
-app.use("/", searchresults);
+app.use("/userpage/searchresults", searchresults);
 
 module.exports = app;
 

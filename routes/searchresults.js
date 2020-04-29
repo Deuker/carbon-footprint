@@ -74,4 +74,13 @@ router.get("/save-routes", (req, res) => {
 // });
 
 
+
+​
+// routes/searchresults.js
+​
+router.post("/allsearchresults", (req, res, next) => {
+  console.log('this is the body of the post:', req.body);
+  // res.render("userpage/searchresults");
+});
+
 module.exports = router;

@@ -1,71 +1,73 @@
 //Here we define the logic for Sign Up and Login
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const User = require('../models/User');
-const passport = require('passport');
-const ensureLogin = require('connect-ensure-login');
-const bcrypt = require('bcrypt');
-const bcryptSalt = 10; 
+const User = require("../models/User");
+const passport = require("passport");
+const ensureLogin = require("connect-ensure-login");
+const bcrypt = require("bcrypt");
+const bcryptSalt = 10;
 
-router.get('/signup', (req, res) => {
-  res.render('auth/signup');
+router.get("/signup", (req, res) => {
+  res.render("auth/signup");
 });
 
 //Sign Up Logic
 
-router.post('/signup', (req, res, next) => {
+router.post("/signup", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  if (email === "" || password ==="") {
-    res.render('auth/signup', {message: 'Indicate email and password'});
+  if (email === "" || password === "") {
+    res.render("auth/signup", { message: "Indicate email and password" });
     return;
   }
 
-  User.findOne({email})
-  .then(user => {
+  User.findOne({ email }).then((user) => {
     if (user !== null) {
-      res.render('auth/signup', {message:"The email is already taken"});
+      res.render("auth/signup", { message: "The email is already taken" });
       return;
     }
-  
-  const salt = bcrypt.genSaltSync(bcryptSalt);
-  const hashPass = bcrypt.hashSync(password, salt);
 
-  User.create({
-    email,
-    password: hashPass
-  })
-  .then(() => {
-    res.redirect('/');
-  })
-  .catch(error => {
-    console.log(error);
-  })
+    const salt = bcrypt.genSaltSync(bcryptSalt);
+    const hashPass = bcrypt.hashSync(password, salt);
+
+    User.create({
+      email,
+      password: hashPass,
+    })
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 });
-})
 
 //Login Logic
 
-router.get('/login', (req, res, next) => {
-  res.render('auth/login', { 'message': req.flash('error')});
+router.get("/login", (req, res, next) => {
+  res.render("auth/login", { message: req.flash("error") });
 });
 
-router.post('/login', passport.authenticate('local', {
-  successRedirect: 'userpage',
-  failureRedirect: 'login',
-  failureFlash: true,
-  passReqToCallback: true
-}));
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "userpage",
+    failureRedirect: "login",
+    failureFlash: true,
+    passReqToCallback: true,
+  })
+);
 
-router.get('/userpage', ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render('userpage/userpage', {user: req.user });
+router.get("/userpage", ensureLogin.ensureLoggedIn(), (req, res) => {
+  res.render("userpage/userpage", { user: req.user });
 });
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/login");
+  res.redirect("/");
 });
 
 module.exports = router;
