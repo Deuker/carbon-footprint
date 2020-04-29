@@ -6,18 +6,18 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-const loginCheck = () => {
-  return (req, res, next) => {
-    if (req.session.user) {
-      next();
-    } else {
-      res.redirect("/login");
-    }
-  };
-};
+// const loginCheck = () => {
+//   return (req, res, next) => {
+//     if (req.session.user) {
+//       next();
+//     } else {
+//       res.redirect("/login");
+//     }
+//   };
+// };
 
-router.get("/userpage", loginCheck(), (req, res) => {
-  res.render("/userpage/userpage");
-});
+// router.get("/userpage", loginCheck(), (req, res) => {
+//   res.render("/userpage/userpage");
+// });
 
 module.exports = router;
