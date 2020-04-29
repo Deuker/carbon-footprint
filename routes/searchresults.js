@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const Airport = require("../models/Airport");
+const Route = require("../models/Route");
+const User = require("../models/User");
 
 // curl - H "Accept: application/json" - u username: password \
 const url =
@@ -43,15 +45,13 @@ router.post("/searchresults", (req, res, next) => {
           })
           .then((response) => {
             const results = response.data.output.amounts;
-          
-          
+
             console.log("Banana", results);
             res.render("userpage/searchresults", {
               results,
               departure,
               destination,
             });
-
           })
           .catch((err) => {
             console.log(err);
@@ -64,8 +64,34 @@ router.post("/searchresults", (req, res, next) => {
 router.get("/searchresults", (req, res, next) => {
   res.render("userpage/searchresults");
 });
-// router.get("/example", (req, res) => {
-//   res.send("WADDDDDDDUUUUUP");
+
+//Here you create the saved route in the backend!
+router.post("/saved-routes", (req, res, next) => {
+  const savedRoute = new Route(req.body);
+  savedRoute
+    .save()
+    .then(() => {
+      res.redirect("/saved-routes");
+    })
+    .catch((err) => console.log("The error while searching occurred: ", err));
+  console.log("this is the body of the post:", req.body);
+  // res.render("userpage/saved-routes");
+});
+
+//Here you show the user saved routes
+router.get("/saved-routes", (req, res) => {
+  console.log("HELLO", req.user);
+  User.findById(req.user._id).then((user) => {
+    console.log("Hello user", user);
+  });
+});
+
+// Route.find().then((data) => {
+//   console.log("Alfonso", data);
+//   res.render("userpage/saved-routes", { data });
 // });
+
+// here you render the user routes hbs
+// res.render("userpage/saved-routes", { allroutes });
 
 module.exports = router;
