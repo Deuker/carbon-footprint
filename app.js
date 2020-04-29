@@ -16,9 +16,15 @@ const LocalStrategy = require("passport-local").Strategy;
 const User = require("./models/User");
 
 mongoose
+  
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/project-carbon-footprint", {
+      useNewUrlParser: true,
+  })
+  /*
   .connect("mongodb://localhost/project-carbon-footprint", {
     useNewUrlParser: true,
   })
+  */
   .then((x) => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
