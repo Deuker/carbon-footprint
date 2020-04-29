@@ -5,22 +5,16 @@ body {
   // background-image: url("/images/white-airliner-wing-on-top-of-sea-clouds-2007401.jpg");
   // background-size: 100%;
 }
-h1 {
-  color: red;
-}
-a {
-  color: #00b7ff;
-}
 
 // Main Page - Navigation Bar
-// Add a black background color to the top navigation
-.topnav {
+//Add a black background color to the top navigation
+.navauth {
   background-color: #3f6e7b;
   overflow: hidden;
 }
 
-// Style the links inside the navigation bar
-.topnav a {
+//Style the links inside the navigation bar
+.navauth a {
   float: right;
   color: #f2f2f2;
   text-align: center;
@@ -30,27 +24,87 @@ a {
 }
 
 // Change the color of links on hover
-.topnav a:hover {
+.navauth a:hover {
   background-color: #ddd;
   color: black;
 }
 
 // Add a color to the active/current link
-.topnav a.active {
+.navauth a.active {
   background-color: #4CAF50;
   color: white;
 }
 
 //Main Page - Background
 .background {
-  background-image: url();
+  background-image: url("/images/white-airliner-wing-on-top-of-sea-clouds-2007401.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position: center;
+  height: 50vw;
+  display: flex;
+  justify-content: center;
+	align-items: center;
 }
 
-#getstarted {
-  color: red;
-  text-decoration: null;
+.background p {
+  color: white;
+  font-size: 1.2em;
+  width: 50%;
+  text-align: center  
+}
+
+.background a {
+  background: white;
+  border: 1px solid #3f6e7b;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+  display: center;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .3s ease background;
+  width: 15%;
+}
+
+// Here we start with the USPs
+
+.usp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: center;
+}
+
+.usp_overview h2 {
+  text-align: center;
+}
+
+.image_usp {
+  width: 70px;
+}
+
+.usp div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
   
 }
+
+.usp h4 {
+  color: #3f6e7b;
+}
+
+.usp p {
+  color: 1A1A1A;
+}
+
 
 // Auth Pages start here
 
