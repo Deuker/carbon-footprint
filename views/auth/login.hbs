@@ -1,15 +1,15 @@
 {{!-- added 24.04. --}}
 
-<h1>This represents the login page</h1>
+<h1 id="authtext">Great to see you again...</h1>
 
-<form action="/auth/login" method="POST">
+<form id="authform" action="/auth/login" method="POST">
   <div>
-    <label for="email">Email:</label>
-    <input type="text" name="email">
+    <label for="email"></label>
+    <input id="email" type="text" name="email" placeholder="Email...">
   </div>
   <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
+    <label for="password"></label>
+    <input id="password" type="password" name="password" placeholder="Password...">
   </div>
 
   {{#if message}}
@@ -17,8 +17,12 @@
   {{/if}}
 
   <div>
-    <input type="submit" value="Log In">
+    <button type="submit">Login</button>
   </div>
+
+  <p id="authtext"> Navigate to 
+   <a href="/">Main Page</a>
+  </p>
 </form>
 
 
