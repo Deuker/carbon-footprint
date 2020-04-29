@@ -43,15 +43,13 @@ router.post("/searchresults", (req, res, next) => {
           })
           .then((response) => {
             const results = response.data.output.amounts;
-          
-          
+
             console.log("Banana", results);
             res.render("userpage/searchresults", {
               results,
               departure,
               destination,
             });
-
           })
           .catch((err) => {
             console.log(err);
@@ -64,8 +62,16 @@ router.post("/searchresults", (req, res, next) => {
 router.get("/searchresults", (req, res, next) => {
   res.render("userpage/searchresults");
 });
+
+router.get("/save-routes", (req, res) => {
+  // console.log(req);
+  console.log("Markus");
+  res.send("living the dream");
+});
+
 // router.get("/example", (req, res) => {
 //   res.send("WADDDDDDDUUUUUP");
 // });
+
 
 module.exports = router;

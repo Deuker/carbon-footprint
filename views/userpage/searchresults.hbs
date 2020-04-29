@@ -1,18 +1,23 @@
 <div class="resultsTable">
-  <h1>{{departure}} - {{destination}} </h1>
+  <h1 id="points">{{departure}} - {{destination}} </h1>
   {{#each results}}
   <div class="co2results">
-
-    <div>{{this.type}}: {{this.value}} {{this.unit}} </div>
-
+    <div class="keys">{{this.type}}: {{this.value}} {{this.unit}} </div>
   </div>
 
   {{/each}}
 </div>
 
+
+
+
+
+
 </br>
 
 
+<button class="waddup"><a href="/allRoutes">Save this route</a> </button>
+<h1 class="changeMe">change here</h1>
 
 
 <form action="/searchresults" method="POST">
@@ -25,17 +30,10 @@
     <label for="pointB">PointB:</label>
     <input type="text" name="pointB">
   </div>
-  <button type="submit">Search</button>
+  <button type="submit">New search</button>
 
 </form>
 
+<script src="/javascripts/axiosCall.js">
 
-<p>Private page</p>
-{{#if user}}
-<div>
-  <a href="/">Logout</a>
-</div>
-
-{{/if}}
-<button class="waddup">Press here for waddup</button>
-<h1 class="changeMe">change here</h1>
+</script>
