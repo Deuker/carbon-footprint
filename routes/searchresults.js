@@ -70,8 +70,15 @@ router.post("/saved-routes", (req, res, next) => {
   const savedRoute = new Route(req.body);
   savedRoute
     .save()
-    .then(() => {
-      res.redirect("/saved-routes");
+    .then((result) => {
+      console.log(result);
+      User.findById(req.user._id).then((user) => {
+        user.routes.push(result);
+        user.save().then((newuser) => {
+          console.log("New user", newuser);
+          res.redirect("/saved-routes");
+        });
+      });
     })
     .catch((err) => console.log("The error while searching occurred: ", err));
   console.log("this is the body of the post:", req.body);
@@ -83,14 +90,20 @@ router.get("/saved-routes", (req, res) => {
   console.log("HELLO", req.user);
   User.findById(req.user._id).then((user) => {
     console.log("Hello user", user);
+    const allRoutesPromise = user.routes.map((ele) => {
+      return Promise.resolve(Route.findById(ele));
+    });
+    Promise.all(allRoutesPromise).then((result) => {
+      console.log(result);
+      res.render("/userpage/saved-routes", { result });
+    });
   });
+
+  // Route.find().then((data) => {
+  //   console.log("Alfonso", data);
+  //   res.render("userpage/saved-routes", { data });
+  // });
 });
-
-// Route.find().then((data) => {
-//   console.log("Alfonso", data);
-//   res.render("userpage/saved-routes", { data });
-// });
-
 // here you render the user routes hbs
 // res.render("userpage/saved-routes", { allroutes });
 
