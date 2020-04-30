@@ -9,8 +9,8 @@ const routeSchema = new Schema({
   nitrousOxideCO2e: Number,
   methaneCO2e: Number,
   totalDirectCO2e: Number,
-  indirectCo2e: Number,
-  lifecycleCo2: Number,
+  indirectCO2e: Number,
+  lifeCycleCO2e: Number,
 });
 
 const Route = mongoose.model("Route", routeSchema);

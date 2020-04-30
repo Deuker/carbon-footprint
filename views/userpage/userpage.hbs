@@ -8,28 +8,26 @@
   </div>
 </nav>
 
-<div class="layout">
-  <div class="searchfield">
+<div class="userpage">
+
+  <h2>Flight Carbon Footprint Calculator</h2>
+  <div>
     <form id="searchform" action="/searchresults/" method="POST">
-      <div>
-        <label id="startpoint" for="pointA"></label>
+      <span>
+        <label id="startpoint" for="pointA">Departure</label>
         <input type="text" name="pointA" placeholder="add your departure here...">
-      </div>
-      <div>
-        <label id="endpoint" for="pointB"></label>
+      </span>
+      <span>
+        <label id="endpoint" for="pointB">Destination</label>
         <input type="text" name="pointB" placeholder="add your destination here...">
-      </div>
-        <button id="addtoroutes" type="submit">Add</button>
-        <a href="/saved-routes"><button class="toSavedRoutes">TO MY SAVED ROUTES</button></a>
+      </span>
+      <button id="addtoroutes" type="submit">See Results</button>
     </form>
   </div>
-  <div class="rightside">
-    <p>Add some text here to make the user use our beautiful search engine</p>
-  </div>
+
+  <p>* Emissions are calculated based on the DEFRA methodologies for passenger and freight transport. These
+    methodologies contain emissions factors which describe the rate at which greenhouse gas emissions are produced
+    in
+    relation to distance travelled and - in the case of freight - the quantity of goods freighted.</p>
+
 </div>
-{{!-- 
-{{#if user}}
-<div>
-  <a href="/auth/logout">Logout</a>
-</div>
-{{/if}} --}}
