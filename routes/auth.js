@@ -57,7 +57,7 @@ router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/auth/userpage",
-    failureRedirect: "/auth/userpage",
+    failureRedirect: "/",
     failureFlash: true,
     passReqToCallback: true,
   })
