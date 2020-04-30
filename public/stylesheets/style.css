@@ -125,34 +125,28 @@ body {
   color: #43a3e6;
   transition: 0.3s ease background; }
 
-.searchfield {
-  padding: 30vh 10vw;
-  box-sizing: border-box;
-  text-align: center; }
-
-#startpoint {
-  color: #666;
-  display: inline-block;
-  margin-bottom: 10px;
+.userpage {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  width: 100%; }
+  justify-content: center;
+  align-items: center; }
 
-#endpoint {
-  box-sizing: border-box;
-  font-size: 14px;
-  outline: 0;
-  padding: 4px;
-  width: 100%;
-  margin-bottom: 20px; }
+.content {
+  display: flex;
+  flex-direction: column;
+  border: double; }
 
 .rightside {
   padding: 30vh 10vw;
   box-sizing: border-box;
-  text-align: center; }
+  text-align: center;
+  border: double; }
 
 .layout {
+  border: double;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center; }
 

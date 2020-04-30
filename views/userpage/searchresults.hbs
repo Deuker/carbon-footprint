@@ -12,33 +12,33 @@
 <div class="layout">
   <div class="rightside">
     {{#if user}}
-      <div class="resultsTable">
-          <h1 id="points">{{departure}} - {{destination}} </h1>
-          {{#each results}}
-            <div class="co2results">
-              <div class="keys">{{this.type}}: {{this.value}} {{this.unit}} </div>
-            </div>
-          {{/each}}
-          <button class="waddup">Save this route </button>
+    <div class="resultsTable">
+      <h1 class="points"> {{departure}} - {{destination}} </h1>
+      {{#each results}}
+      <div class="co2results">
+        <div class="keys">{{this.type}}: {{this.value}} {{this.unit}} </div>
       </div>
+      {{/each}}
+      <button class="waddup">Save this route </button>
+    </div>
   </div>
 
   <div class="searchfield">
     <button class="waddup">Save this route </button>
-      <a href="/saved-routes"><button class="toSavedRoutes">TO MY SAVED ROUTES</button></a>
-      <h1 class="changeMe">change here</h1>
+    <a href="/saved-routes"><button class="toSavedRoutes">TO MY SAVED ROUTES</button></a>
+    <h1 class="changeMe">change here</h1>
 
-      <form action="/searchresults" method="POST">
-        <div>
-          <label for="pointA">PointA:</label>
-          <input type="text" name="pointA">
-        </div>
-        <div>
-          <label for="pointB">PointB:</label>
-          <input type="text" name="pointB">
-        </div>
-        <button type="submit">New search</button>
-      </form>
+    <form action="/searchresults" method="POST">
+      <div>
+        <label for="pointA">PointA:</label>
+        <input class="pointA" type="text" name="pointA">
+      </div>
+      <div>
+        <label for="pointB">PointB:</label>
+        <input class="pointB" type="text" name="pointB">
+      </div>
+      <button type="submit">New search</button>
+    </form>
   </div>
 </div>
 {{else}}
@@ -46,6 +46,15 @@
 {{/if}}
 
 <script>
+  document.querySelectorAll(".keys").forEach(elem => {
+    const string = elem.innerHTML.split(" ")
+    const key = string[0].slice(0, string[0].length - 1)
+    console.log(key)
+    const value = Math.round(parseFloat(string[1]))
+
+
+    elem.innerHTML = `${key}: ${value}${string[2]}`
+  })
   document.querySelector(".waddup").onclick = () => {
     console.log(axios)
     const route = {
@@ -59,11 +68,13 @@
       indirectCO2e: 0,
       lifeCycleCO2e: 0,
     }
-    const points = document.querySelector("#points").innerHTML.split(" - ")
+    console.log("all good")
+    const points = document.querySelector(".points").innerHTML.split(" - ")
     console.log(points)
     route.pointA = points[0]
     route.pointB = points[1]
     document.querySelectorAll(".keys").forEach(elem => {
+      console.log("this is the elem", elem)
       const string = elem.innerHTML.split(" ")
       const key = string[0].slice(0, string[0].length - 1)
       console.log(key)
@@ -71,10 +82,12 @@
       route[key] = value
       console.log("HALLLLOOOOOO", route)
     })
+
     axios.post("/saved-routes", route).then(response => {
+      console.log("HELLO!!!!!??")
       console.log('waddup');
       document.querySelector(".changeMe").innerText = 'changed after reponse';
-      window.location.replace("http://localhost:3000/saved-routes");
+      window.location.replace("/saved-routes");
     }).catch(err => {
       console.log(err)
     });
