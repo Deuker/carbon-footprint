@@ -8,41 +8,43 @@
     {{/if}}
   </div>
 </nav>
-{{#if user}}
 
-<div class="resultsTable">
-  <h1 id="points">{{departure}} - {{destination}} </h1>
-  {{#each results}}
-  <div class="co2results">
-    <div class="keys">{{this.type}}: {{this.value}} {{this.unit}} </div>
+<div class="layout">
+  <div class="rightside">
+    {{#if user}}
+      <div class="resultsTable">
+          <h1 id="points">{{departure}} - {{destination}} </h1>
+          {{#each results}}
+            <div class="co2results">
+              <div class="keys">{{this.type}}: {{this.value}} {{this.unit}} </div>
+            </div>
+          {{/each}}
+          <button class="waddup">Save this route </button>
+      </div>
   </div>
-  {{/each}}
 
+  <div class="searchfield">
+    <button class="waddup">Save this route </button>
+      <a href="/saved-routes"><button class="toSavedRoutes">TO MY SAVED ROUTES</button></a>
+      <h1 class="changeMe">change here</h1>
 
+      <form action="/searchresults" method="POST">
+        <div>
+          <label for="pointA">PointA:</label>
+          <input type="text" name="pointA">
+        </div>
+        <div>
+          <label for="pointB">PointB:</label>
+          <input type="text" name="pointB">
+        </div>
+        <button type="submit">New search</button>
+      </form>
+  </div>
 </div>
-
-
-<button class="waddup">Save this route </button>
-<a href="/saved-routes"><button class="toSavedRoutes">TO MY SAVED ROUTES</button></a>
-<h1 class="changeMe">change here</h1>
-
-<form action="/searchresults" method="POST">
-  <div>
-    <label for="pointA">PointA:</label>
-    <input type="text" name="pointA">
-
-  </div>
-  <div>
-    <label for="pointB">PointB:</label>
-    <input type="text" name="pointB">
-  </div>
-  <button type="submit">New search</button>
-
-</form>
 {{else}}
 <h1>Please login</h1>
-
 {{/if}}
+
 <script>
   document.querySelector(".waddup").onclick = () => {
     console.log(axios)
