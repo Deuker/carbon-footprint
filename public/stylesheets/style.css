@@ -161,6 +161,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin: 5%; }
 
 .content {
@@ -187,6 +188,24 @@ body {
   /* text-align: center; */
   /* align-content: space-around; */
   margin: 5%; }
+
+.layout2 {
+  display: flex;
+  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center; }
+
+#footermain {
+  background-color: #3f6e7b;
+  color: #3f6e7b; }
+
+.footer p {
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: small; }
 
 .savedrouteslayout {
   display: flex;
@@ -231,21 +250,43 @@ body {
   justify-content: center;
   align-items: center; }
 
-.layout2 {
+.searchformdeparturedestination {
   display: flex;
-  flex-direction: row;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center; }
+  justify-content: space-between; }
 
-#footermain {
-  background-color: #3f6e7b;
-  color: #3f6e7b; }
+#startpointtext {
+  margin-top: 15px;
+  margin-bottom: 17px;
+  width: 250px; }
 
-.footer {
-  background-color: #3f6e7b;
-  color: #3f6e7b;
-  margin: 0px;
-  padding: 0px; }
+#startpoint {
+  margin-top: 15px;
+  margin-bottom: 17px;
+  width: 91px; }
+
+#endpointtext {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 250px; }
+
+#endpoint {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 90px; }
+
+.pointAlabel {
+  margin-top: 15px;
+  margin-bottom: 17px;
+  width: 100px; }
+
+.pointA {
+  margin-top: 15px;
+  margin-bottom: 17px;
+  width: 100px; }
+
+.pointB {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 90px; }
 
 /*# sourceMappingURL=style.css.map */
