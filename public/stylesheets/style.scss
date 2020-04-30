@@ -156,13 +156,31 @@ body {
   color: #43a3e6;
   transition: 0.3s ease background;
 }
-
+#searchform {
+  display: flex;
+  flex-direction: column;
+}
+#searchform span {
+  display: flex;
+  align-content: space-between;
+}
 .userpage {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  // text-align: center;
   justify-content: center;
   align-items: center;
+  align-content: space-between;
+  margin: 5%;
+}
+.searchfield {
+  margin: 5%;
+}
+.userpage p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
 }
 // #startpoint {
 //   color: #666;
@@ -185,20 +203,33 @@ body {
   flex-direction: column;
   border: double;
 }
-
-.rightside {
-  padding: 30vh 10vw;
-  box-sizing: border-box;
-  text-align: center;
-  border: double;
+.resultsTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.co2results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
+// .rightside {
+//   padding: 30vh 10vw;
+//   box-sizing: border-box;
+//   text-align: center;
+//   border: double;
+// }
+
 .layout {
-  border: double;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-evenly;
+  /* text-align: center; */
+  /* align-content: space-around; */
+  margin: 5%;
 }
 
 // //bike
@@ -228,11 +259,29 @@ body {
 
   flex-wrap: wrap;
 }
+.mainbtn {
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  border: 2px solid #3f6e7b;
+  margin: 5%;
+  padding: 3px 38px;
+}
+
+.waddup {
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  border: 2px solid #3f6e7b;
+  margin: 5%;
+  padding: 3px 38px;
+}
 .singleRoute {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 5%;
 }
 .keys {
   display: flex;
