@@ -134,4 +134,30 @@ body {
   justify-content: space-between;
   align-items: center; }
 
+.savedrouteslayout {
+  display: flex;
+  align-content: space-between;
+  justify-content: space-evenly;
+  flex-wrap: wrap; }
+
+.singleRoute {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.keys {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+
+.singleRoute span {
+  display: flex;
+  align-items: center; }
+
+.singleRoute h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 /*# sourceMappingURL=style.css.map */
