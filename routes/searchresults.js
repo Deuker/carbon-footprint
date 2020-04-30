@@ -100,4 +100,15 @@ router.get("/saved-routes", (req, res) => {
   });
 });
 
+router.get("/saved-routes/delete/_id", (req, res) => {
+  console.log("DELETE_TEST", req._id);
+  Route.deleteOne(req._id)
+    .then(() => {
+      res.redirect("userpage/saved-routes");
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 module.exports = router;
