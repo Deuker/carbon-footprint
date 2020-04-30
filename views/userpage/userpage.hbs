@@ -1,4 +1,4 @@
-<h1>this represents the userpage</h1>
+{{!-- <h1>this represents the userpage</h1> --}}
 
 <nav>
   <p class="navtitle">Travel Clever</p>
@@ -9,25 +9,26 @@
 </nav>
 
 {{!-- changed action ="/searchresults" to ="/searchresults/add" --}}
-<form action="/searchresults/" method="POST">
+<form id="searchform" action="/searchresults/" method="POST">
   <div>
-    <label for="pointA">PointA:</label>
+    <label id="startpoint" for="pointA">PointA:</label>
     <input type="text" name="pointA">
   </div>
   <div>
-    <label for="pointB">PointB:</label>
+    <label id="endpoint" for="pointB">PointB:</label>
     <input type="text" name="pointB">
   </div>
-  <button type="submit">Add</button>
-</form>
-
-<a href="/saved-routes">
+  <button id="addtoroutes"type="submit">Add</button>
+  <a href="/saved-routes">
   <button class="toSavedRoutes">TO MY SAVED ROUTES</button>
 </a>
+</form>
 
 
+
+{{!-- 
 {{#if user}}
 <div>
   <a href="/auth/logout">Logout</a>
 </div>
-{{/if}}
+{{/if}} --}}

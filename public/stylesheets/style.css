@@ -125,19 +125,7 @@ body {
   color: #43a3e6;
   transition: .3s ease background; }
 
-.picturelist {
-  float: left;
-  padding: 10vw;
-  text-decoration: none;
-  background-image: url("/images/Transport-Airplane-Take-Off-icon.png");
-  background-position: center;
-  height: 10vw;
-  width: 15vw;
-  margin: 5vw; }
-
-.textbike {
-  float: right;
-  padding: 5vw;
-  margin: 200px; }
+#searchform {
+  float: right; }
 
 /*# sourceMappingURL=style.css.map */
