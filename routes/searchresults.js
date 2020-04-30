@@ -76,7 +76,7 @@ router.post("/saved-routes", (req, res, next) => {
         user.routes.push(result);
         user.save().then((newuser) => {
           console.log("New user", newuser);
-          res.redirect("/saved-routes");
+          // res.redirect("userpage/saved-routes");
         });
       });
     })
@@ -95,16 +95,9 @@ router.get("/saved-routes", (req, res) => {
     });
     Promise.all(allRoutesPromise).then((result) => {
       console.log(result);
-      res.render("/userpage/saved-routes", { result });
+      res.render("userpage/saved-routes", { result });
     });
   });
-
-  // Route.find().then((data) => {
-  //   console.log("Alfonso", data);
-  //   res.render("userpage/saved-routes", { data });
-  // });
 });
-// here you render the user routes hbs
-// res.render("userpage/saved-routes", { allroutes });
 
 module.exports = router;
