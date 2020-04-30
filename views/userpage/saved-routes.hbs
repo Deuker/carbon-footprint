@@ -5,20 +5,27 @@
     <a href="/auth/userpage">+ Add Routes</a>
   </div>
 </nav>
+<div class="savedrouteslayout">
 
-banana
-{{#each result}}
+  {{#each result}}
+  <div class="singleRoute">
 
-<div>{{this.pointA}} - {{this.pointB}}</div>
-<div>Distance: {{this.distance}} km</div>
-<div class="keys">
-  <div>CO2{{this.CO2}} kg </div>
-  <div>NitrousOxideCO2{{this.nitrousOxideCO2e}} kg</div>
-  <div>MethaneCO2e{{this.methaneCO2e}} kg</div>
+    <div class="generalInfo">
+      <h1>{{this.pointA}} - {{this.pointB}}</h1>
+      <h2>Distance: {{this.distance}} km</h2>
+    </div>
+    <div class="keys">
+      <span><b>CO2: </b> {{   this.CO2}} kg </span>
+      <span><b>NitrousOxideCO2: </b> {{  this.nitrousOxideCO2e}} kg</span>
+      <span><b>MethaneCO2e: </b> {{  this.methaneCO2e}} kg</span>
+      <span><b>TotalDirectCO2e: </b> {{  this.totalDirectCO2e}} kg</span>
+      <span><b>IndirectCO2e: </b> {{  this.indirectCO2e}} kg</span>
+      <span><b>LifeCycleCO2e: </b> {{  this.lifeCycleCO2e}} kg</span>
+    </div>
 
-  <div>TotalDirectCO2e{{this.totalDirectCO2e}} kg</div>
+    <a href="/saved-routes/delete/{{_id}}"><button class="mainbtn" class="srbtn">Delete</button></a>
 
-  <a href="/saved-routes/delete/{{_id}}">Delete</a>
+  </div>
+  {{/each }}
+
 </div>
-
-{{/each }}

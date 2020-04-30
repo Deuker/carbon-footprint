@@ -78,6 +78,7 @@ router.post("/saved-routes", (req, res, next) => {
         user.routes.push(result);
         user.save().then((newuser) => {
           console.log("New user", newuser);
+          res.send("Done");
           // res.redirect("userpage/saved-routes");
         });
       });
