@@ -1,24 +1,15 @@
 const mongoose = require("mongoose");
 const Airport = require("../models/Airport");
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project-carbon-footprint", {
+const airports = require("./airports.json");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/database_test", {
   useNewUrlParser: true,
 });
-
-const test = Airport.create({
-  ident: "Hello",
-  type: "I",
-  name: "Am",
-  elevation_ft: "THE",
-  continent: "TEST",
-  iso_country: "AIRPORT",
-  iso_region: "PLS",
-  municipality: "DELETE",
-  gps_code: "ME",
-  iata_code: "A",
-  local_code: "S",
-  coordinates: "AP",
+airports.forEach(elem=>{
+delete elem._id
 })
+const test = Airport.insertMany(
+  airports
+)
   .then((results) => {
     console.log("Yaaay");
   })
