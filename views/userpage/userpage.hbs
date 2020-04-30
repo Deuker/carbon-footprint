@@ -2,30 +2,33 @@
 
 <nav>
   <p class="navtitle">Travel Clever</p>
-    <div class="navauth">
-      <a href="/auth/logout">Logout</a>
-      <a href="/saved-routes">My saved Routes</a>
-    </div>
+  <div class="navauth">
+    <a href="/auth/logout">Logout</a>
+    <a href="/saved-routes">My saved Routes</a>
+  </div>
 </nav>
 
-{{!-- changed action ="/searchresults" to ="/searchresults/add" --}}
-<form id="searchform" action="/searchresults/" method="POST">
-  <div>
-    <label id="startpoint" for="pointA">PointA:</label>
-    <input type="text" name="pointA">
+<div class="layout">
+  <div class="searchfield">
+    <form id="searchform" action="/searchresults/" method="POST">
+      <div>
+        <label id="startpoint" for="pointA">PointA:</label>
+        <input type="text" name="pointA">
+      </div>
+      <div>
+        <label id="endpoint" for="pointB">PointB:</label>
+        <input type="text" name="pointB">
+      </div>
+      <button id="addtoroutes" type="submit">Add</button>
+      <a href="/saved-routes">
+        <button class="toSavedRoutes">TO MY SAVED ROUTES</button>
+      </a>
+    </form>
   </div>
-  <div>
-    <label id="endpoint" for="pointB">PointB:</label>
-    <input type="text" name="pointB">
+  <div class="rightside">
+    <p>Hello there</p>
   </div>
-  <button id="addtoroutes"type="submit">Add</button>
-  <a href="/saved-routes">
-  <button class="toSavedRoutes">TO MY SAVED ROUTES</button>
-</a>
-</form>
-
-
-
+</div>
 {{!-- 
 {{#if user}}
 <div>

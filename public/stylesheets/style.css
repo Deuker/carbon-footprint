@@ -20,7 +20,7 @@ body {
   color: black; }
 
 .navauth a.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white; }
 
 .background {
@@ -50,7 +50,7 @@ body {
   padding: 8px 16px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: .3s ease background;
+  transition: 0.3s ease background;
   width: 15%; }
 
 .usp {
@@ -78,7 +78,7 @@ body {
   color: #3f6e7b; }
 
 .usp p {
-  color: 1A1A1A; }
+  color: 1a1a1a; }
 
 #authtext {
   color: #666;
@@ -117,15 +117,21 @@ body {
   padding: 8px 16px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: .3s ease background;
+  transition: 0.3s ease background;
   width: 100%; }
 
 #authform button:hover {
   background: #fff;
   color: #43a3e6;
-  transition: .3s ease background; }
+  transition: 0.3s ease background; }
 
 #searchform {
   float: right; }
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
 
 /*# sourceMappingURL=style.css.map */
