@@ -95,7 +95,7 @@ router.get("/saved-routes", (req, res) => {
     });
     Promise.all(allRoutesPromise).then((result) => {
       console.log(result);
-      res.render("/userpage/saved-routes", { result });
+      res.render("userpage/saved-routes", { result });
     });
   });
 
