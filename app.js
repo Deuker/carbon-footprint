@@ -150,6 +150,9 @@ app.use("/", userpage);
 const searchresults = require("./routes/searchresults");
 app.use("/", searchresults);
 
+const bikeroute = require("./routes/bike");
+app.use("/", bikeroute);
+
 // const savedresults = require("./routes/saved-results");
 // app.use("/", savedresults);
 
