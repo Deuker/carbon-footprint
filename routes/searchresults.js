@@ -15,11 +15,13 @@ const modelName = "Great_Circle_flight_methodology";
 // use http basic authentication by passing a second parameter after the url
 
 router.post("/searchresults", (req, res, next) => {
+  console.log("this is the body quert", req.body);
   const departure = req.body.pointA;
   const destination = req.body.pointB;
 
   Airport.find({ municipality: departure })
     .then((data) => {
+      console.log("this is the data from airport", data);
       data = data.filter((el) => el && el.iata_code);
       console.log(data[0].iata_code);
       const codeA = data[0].iata_code;
