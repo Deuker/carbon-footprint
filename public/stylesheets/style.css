@@ -7,13 +7,19 @@ body {
   background-color: #3f6e7b;
   overflow: hidden; }
 
+.navauth img {
+  float: left; }
+
+.navuser img {
+  float: left; }
+
 .navauth a {
   float: right;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 30px 16px;
   text-decoration: none;
-  font-size: 17px; }
+  font-size: px; }
 
 .navauth a:hover {
   background-color: #ddd;
@@ -22,6 +28,9 @@ body {
 .navauth a.active {
   background-color: #4caf50;
   color: white; }
+
+.navlogo {
+  width: 10rem; }
 
 .background {
   background-image: url("/images/white-airliner-wing-on-top-of-sea-clouds-2007401.jpg");
@@ -38,6 +47,9 @@ body {
   font-size: 1.2em;
   width: 50%;
   text-align: center; }
+
+.background h1 {
+  color: 3f6e7b; }
 
 .background a {
   background: white;
@@ -60,8 +72,9 @@ body {
   justify-content: space-around;
   position: center; }
 
-.usp_overview h2 {
-  text-align: center; }
+.usp_overview h1 {
+  text-align: center;
+  margin-top: 10vh; }
 
 .image_usp {
   width: 70px; }
@@ -217,5 +230,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+.layout2 {
+  display: flex;
+  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center; }
+
+#footermain {
+  background-color: #3f6e7b;
+  color: #3f6e7b; }
+
+.footer {
+  background-color: #3f6e7b;
+  color: #3f6e7b;
+  margin: 0px;
+  padding: 0px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,7 +1,7 @@
 <nav>
-  <p class="navtitle">Travel Clever</p>
   <div class="navauth">
     {{#if user}}
+    <img class= "navlogo" src= "/images/logo5.png" alt="travelclever-logo">
     <a href="/auth/logout">Logout</a>
 
     <a href="/saved-routes">My saved Routes</a>
@@ -9,8 +9,10 @@
   </div>
 </nav>
 
+
 <div class="layout">
   <div class="singleRoute">
+
     {{#if user}}
     <div class="resultsTable">
       <h1 class="points"> {{departure}} - {{destination}} </h1>
