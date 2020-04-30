@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Airport = require("../models/Airport");
 
-mongoose.connect("mongodb://localhost/project-carbon-footprint", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project-carbon-footprint", {
   useNewUrlParser: true,
 });
 
