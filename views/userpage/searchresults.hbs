@@ -1,10 +1,14 @@
 <nav>
   <p class="navtitle">Travel Clever</p>
-    <div class="navauth">
-      <a href="/">Logout</a>
-      <a href="/saved-routes">My saved Routes</a>
-    </div>
+  <div class="navauth">
+    {{#if user}}
+    <a href="/auth/logout">Logout</a>
+
+    <a href="/saved-routes">My saved Routes</a>
+    {{/if}}
+  </div>
 </nav>
+{{#if user}}
 
 <div class="resultsTable">
   <h1 id="points">{{departure}} - {{destination}} </h1>
@@ -19,7 +23,23 @@
 <button class="waddup">Save this route </button>
 <h1 class="changeMe">change here</h1>
 
+<form action="/searchresults" method="POST">
+  <div>
+    <label for="pointA">PointA:</label>
+    <input type="text" name="pointA">
 
+  </div>
+  <div>
+    <label for="pointB">PointB:</label>
+    <input type="text" name="pointB">
+  </div>
+  <button type="submit">New search</button>
+
+</form>
+{{else}}
+<h1>Please login</h1>
+
+{{/if}}
 <script>
   document.querySelector(".waddup").onclick = () => {
     console.log(axios)
@@ -62,19 +82,6 @@
 
 
 
-<form action="/searchresults" method="POST">
-  <div>
-    <label for="pointA">PointA:</label>
-    <input type="text" name="pointA">
-
-  </div>
-  <div>
-    <label for="pointB">PointB:</label>
-    <input type="text" name="pointB">
-  </div>
-  <button type="submit">New search</button>
-
-</form>
 
 <script src="/javascripts/axiosCall.js">
 

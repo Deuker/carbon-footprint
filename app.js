@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 const bcrypt = require("bcrypt");
 const flash = require("connect-flash");
 const passport = require("passport");
@@ -66,8 +67,15 @@ app.use(cookieParser());
 app.use(
   session({
     secret: "our-passport-local-strategy-app",
-    resave: true,
-    saveUninitialized: true,
+    //resave: true,
+    //saveUninitialized: true,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 },
+    saveUninitialized: false,
+    resave: false,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 * 1000,
+    }),
   })
 );
 
@@ -88,12 +96,13 @@ passport.serializeUser((user, cb) => {
 });
 
 passport.deserializeUser((id, cb) => {
-  User.findById(id, (err, user) => {
-    if (err) {
-      return cb(err);
-    }
-    cb(null, user);
-  });
+  User.findById(id)
+    .then((userDocument) => {
+      cb(null, userDocument);
+    })
+    .catch((err) => {
+      cb(err);
+    });
 });
 
 app.use(flash());
@@ -124,6 +133,11 @@ passport.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
 
 // app.set("views", path.join(__dirname, "views"));
 // app.set("view engine", "hbs");
