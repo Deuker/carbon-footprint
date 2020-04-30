@@ -102,15 +102,23 @@ router.get("/saved-routes", (req, res) => {
   });
 });
 
-router.get("/saved-routes/delete/_id", (req, res) => {
-  console.log("DELETE_TEST", req._id);
-  Route.deleteOne(req._id)
+router.get("/saved-routes/delete/:_id", (req, res) => {
+  console.log("DELETE_TEST", req.params._id);
+  User.findByIdAndUpdate(req.user._id, { $pull: { routes: req.params._id } })
+    .then((response) => {
+      console.log(response);
+      res.redirect("/saved-routes");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  /*  Route.deleteById(req.params._id)
     .then(() => {
       res.redirect("userpage/saved-routes");
     })
     .catch((err) => {
       next(err);
-    });
+    }); */
 });
 
 module.exports = router;
