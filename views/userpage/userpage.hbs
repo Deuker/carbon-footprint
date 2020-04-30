@@ -12,21 +12,19 @@
   <div class="searchfield">
     <form id="searchform" action="/searchresults/" method="POST">
       <div>
-        <label id="startpoint" for="pointA">PointA:</label>
-        <input type="text" name="pointA">
+        <label id="startpoint" for="pointA"></label>
+        <input type="text" name="pointA" placeholder="add your departure here...">
       </div>
       <div>
-        <label id="endpoint" for="pointB">PointB:</label>
-        <input type="text" name="pointB">
+        <label id="endpoint" for="pointB"></label>
+        <input type="text" name="pointB" placeholder="add your destination here...">
       </div>
-      <button id="addtoroutes" type="submit">Add</button>
-      <a href="/saved-routes">
-        <button class="toSavedRoutes">TO MY SAVED ROUTES</button>
-      </a>
+        <button id="addtoroutes" type="submit">Add</button>
+        <a href="/saved-routes"><button class="toSavedRoutes">TO MY SAVED ROUTES</button></a>
     </form>
   </div>
   <div class="rightside">
-    <p>Hello there</p>
+    <p>Add some text here to make the user use our beautiful search engine</p>
   </div>
 </div>
 {{!-- 
