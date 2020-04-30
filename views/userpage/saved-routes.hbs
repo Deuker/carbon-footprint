@@ -10,12 +10,53 @@ banana
 {{#each result}}
 
 <div>{{this.pointA}} - {{this.pointB}}</div>
-<div>{{this.distance}}</div>
-<div>{{this.CO2}}</div>
-<div>{{this.nitrousOxideCO2e}}</div>
-<div>{{this.methaneCO2e}}</div>
-<div>{{this.totalDirectCO2e}}</div>
-<div>{{this.indirectCo2e}}</div>
-<div>{{this.lifecycleCo2}}</div>
+<div>Distance: {{this.distance}} km</div>
+<div class="keys">
+  <div>CO2{{this.CO2}} kg </div>
+  <div>NitrousOxideCO2{{this.nitrousOxideCO2e}} kg</div>
+  <div>MethaneCO2e{{this.methaneCO2e}} kg</div>
+  <div>TotalDirectCO2e{{this.totalDirectCO2e}} kg</div>
+  <a href="/saved-routes/delete/{{_id}}">Delete</a>
+</div>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+<script src="path/to/chartjs/dist/Chart.js"></script>
+<script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green'],
+      datasets: [{
+        label: 'C02',
+        data: [1, 2, 3, 4],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+</script>
 
 {{/each }}
