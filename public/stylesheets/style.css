@@ -40,7 +40,8 @@ body {
   height: 50vw;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  flex-direction: column; }
 
 .background p {
   color: white;
@@ -52,10 +53,10 @@ body {
   color: 3f6e7b; }
 
 .background a {
-  background: white;
+  background: #3f6e7b;
   border: 1px solid #3f6e7b;
   border-radius: 4px;
-  color: black;
+  color: white;
   cursor: pointer;
   display: center;
   font-size: 14px;
@@ -65,12 +66,13 @@ body {
   transition: 0.3s ease background;
   width: 15%; }
 
+#mainparagraph {
+  text-shadow: 2px 2px #f0ffff; }
+
 .usp {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  position: center; }
+  align-items: flex-start; }
 
 .usp_overview h1 {
   text-align: center;
@@ -188,6 +190,23 @@ body {
   /* align-content: space-around; */
   margin: 5%; }
 
+.layout2 {
+  display: flex;
+  flex-direction: row;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center; }
+
+#footermain {
+  background-color: #3f6e7b;
+  color: #3f6e7b; }
+
+.footer {
+  background-color: #3f6e7b;
+  color: #3f6e7b;
+  margin: 0px;
+  padding: 0px; }
+
 .savedrouteslayout {
   display: flex;
   align-content: space-between;
@@ -230,22 +249,5 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
-
-.layout2 {
-  display: flex;
-  flex-direction: row;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center; }
-
-#footermain {
-  background-color: #3f6e7b;
-  color: #3f6e7b; }
-
-.footer {
-  background-color: #3f6e7b;
-  color: #3f6e7b;
-  margin: 0px;
-  padding: 0px; }
 
 /*# sourceMappingURL=style.css.map */
