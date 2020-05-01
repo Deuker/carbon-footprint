@@ -203,6 +203,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin: 5%;
 }
 // #startpoint {
@@ -268,11 +269,14 @@ body {
   color: #3f6e7b;
 }
 
-.footer {
-  background-color: #3f6e7b;
-  color: #3f6e7b;
-  margin: 0px;
-  padding: 0px;
+
+
+.footer p {
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: small;
 }
 
 // //bike
@@ -340,3 +344,52 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.searchformdeparturedestination {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#startpointtext {
+  margin-top: 15px;
+  margin-bottom: 17px;
+  width: 250px;
+}
+
+#startpoint {
+  margin-top: 15px;
+  margin-bottom: 17px;
+  width: 91px
+}
+
+#endpointtext {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 250px;
+}
+
+#endpoint {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 90px;
+}
+
+.pointAlabel {
+  margin-top: 15px;
+  margin-bottom: 17px;
+  width: 100px;
+}
+
+.pointA {
+  margin-top: 15px;
+  margin-bottom: 17px;
+  width: 100px
+}
+
+.pointB {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 90px; 
+}
+

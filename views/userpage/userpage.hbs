@@ -15,11 +15,11 @@
     <form id="searchform" action="/searchresults/" method="POST">
       <span>
         <label id="startpoint" for="pointA">Departure: </label>
-        <input type="text" name="pointA" placeholder="add your departure here...">
+        <input id="startpointtext" type="text" name="pointA" placeholder="">
       </span>
       <span>
         <label id="endpoint" for="pointB">Destination:</label>
-        <input type="text" name="pointB" placeholder="add your destination here...">
+        <input id="endpointtext" type="text" name="pointB" placeholder="">
       </span>
       <button class="mainbtn" id="addtoroutes" type="submit">See Results</button>
     </form>
@@ -32,4 +32,13 @@
     relation to distance travelled and - in the case of freight - the quantity of goods freighted.</p>
 
 
+</div>
+
+<div class="footer">
+  <p>direct CO2 emissions: carbon dioxide emissions produced during flight, i.e. fuel combustion</p>
+  <p>direct CH4 emissions: methane emissions produced during flight, i.e. fuel combustion</p>
+  <p>direct N2O emissions: nitrous oxide emissions produced during flight, i.e. fuel combustion</p>
+  <p>total direct emissions: all direct emissions, i.e. CO2 + CH4 + N2O</p>
+  <p>indirect emissions: emissions associated with stages in the fuel production chain such as raw material extraction and fuel delivery</p>
+  <p>total or ‘life cycle’: the total of direct and indirect emissions</p>
 </div>
