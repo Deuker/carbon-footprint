@@ -16,12 +16,10 @@ body {
 
 .navauth img {
   float: left;
-  
 }
 
 .navuser img {
   float: left;
-
 }
 
 //Style the links inside the navigation bar
@@ -60,6 +58,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .background p {
@@ -74,10 +73,10 @@ body {
 }
 
 .background a {
-  background: white;
+  background: #3f6e7b;
   border: 1px solid #3f6e7b;
   border-radius: 4px;
-  color: black;
+  color: white;
   cursor: pointer;
   display: center;
   font-size: 14px;
@@ -87,15 +86,19 @@ body {
   transition: 0.3s ease background;
   width: 15%;
 }
+#mainparagraph {
+  text-shadow: 2px 2px #f0ffff;
+}
 
 // Here we start with the USPs
 
 .usp {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  position: center;
+  // align-items: center;
+  // justify-content: space-around;
+  // position: center;
+  align-items: flex-start;
 }
 
 .usp_overview h1 {
