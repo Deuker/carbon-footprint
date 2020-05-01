@@ -1,107 +1,128 @@
 <nav>
   <div class="navauth">
     {{#if user}}
-    <img class= "navlogo" src= "/images/logo5.png" alt="travelclever-logo">
+    <img class="navlogo" src="/images/logo5.png" alt="travelclever-logo">
     <a href="/auth/logout">Logout</a>
 
     <a href="/saved-routes">My saved Routes</a>
     {{/if}}
   </div>
 </nav>
+<div class="wrapper">
 
+  <div class="layout">
+    <div class="singleRoute">
 
-<div class="layout">
-  <div class="singleRoute">
+      {{#if user}}
+      <div class="resultsTable">
+        <h1 class="points"> {{departure}} - {{destination}} </h1>
 
-    {{#if user}}
-    <div class="resultsTable">
-      <h1 class="points"> {{departure}} - {{destination}} </h1>
+        <div class="co2results">
+          {{#each results}}
+          <div class="keys">{{this.type}}: {{this.value}} {{this.unit}}</div>
+          {{/each}}
+        </div>
 
-      <div class="co2results">
-        {{#each results}}
-        <div class="keys">{{this.type}}: {{this.value}} {{this.unit}}</div>
-        {{/each}}
+        <button class="waddup">Save this route </button>
       </div>
+    </div>
 
-      <button class="waddup">Save this route </button>
+    <div class="searchfield">
+      {{!-- <button class="waddup">Save this route </button> --}}
+      <a href="/saved-routes"></a>
+      <h1 class="changeMe">Search Again</h1>
+
+      <form action="/searchresults" method="POST">
+        <div>
+          <label class="pointAlabel" for="pointA">Departure:</label>
+          <input class="pointA" type="text" name="pointA">
+        </div>
+        <div>
+          <label class="pointB" for="pointB">Destination:</label>
+          <input class="pointB" type="text" name="pointB">
+        </div>
+        <button class="mainbtn" type="submit">New search</button>
+      </form>
     </div>
   </div>
+  {{else}}
+  <h1>Please login</h1>
+  {{/if}}
 
-  <div class="searchfield">
-    {{!-- <button class="waddup">Save this route </button> --}}
-    <a href="/saved-routes"></a>
-    <h1 class="changeMe">Search Again</h1>
-
-    <form action="/searchresults" method="POST">
-      <div>
-        <label class="pointAlabel" for="pointA">Departure:</label>
-        <input class="pointA" type="text" name="pointA">
-      </div>
-      <div>
-        <label class="pointB" for="pointB">Destination:</label>
-        <input class="pointB" type="text" name="pointB">
-      </div>
-      <button class="mainbtn" type="submit">New search</button>
-    </form>
-  </div>
-</div>
-{{else}}
-<h1>Please login</h1>
-{{/if}}
-
-<script>
-  document.querySelectorAll(".keys").forEach(elem => {
-    const string = elem.innerHTML.split(" ")
-    const key = string[0].slice(0, string[0].length - 1)
-    console.log(key)
-    const value = Math.round(parseFloat(string[1]))
-
-
-    elem.innerHTML = `${key}: ${value}${string[2]}`
-  })
-  document.querySelector(".waddup").onclick = () => {
-    console.log(axios)
-    const route = {
-      pointA: "",
-      pointB: "",
-      distance: 0,
-      CO2: 0,
-      nitrousOxideCO2e: 0,
-      methaneCO2e: 0,
-      totalDirectCO2e: 0,
-      indirectCO2e: 0,
-      lifeCycleCO2e: 0,
-    }
-    console.log("all good")
-    const points = document.querySelector(".points").innerHTML.split(" - ")
-    console.log(points)
-    route.pointA = points[0]
-    route.pointB = points[1]
+  <script>
     document.querySelectorAll(".keys").forEach(elem => {
-      console.log("this is the elem", elem)
       const string = elem.innerHTML.split(" ")
       const key = string[0].slice(0, string[0].length - 1)
       console.log(key)
       const value = Math.round(parseFloat(string[1]))
-      route[key] = value
-      console.log("HALLLLOOOOOO", route)
+
+
+      elem.innerHTML = `${key}: ${value}${string[2]}`
     })
+    document.querySelector(".waddup").onclick = () => {
+      console.log(axios)
+      const route = {
+        pointA: "",
+        pointB: "",
+        distance: 0,
+        CO2: 0,
+        nitrousOxideCO2e: 0,
+        methaneCO2e: 0,
+        totalDirectCO2e: 0,
+        indirectCO2e: 0,
+        lifeCycleCO2e: 0,
+      }
+      console.log("all good")
+      const points = document.querySelector(".points").innerHTML.split(" - ")
+      console.log(points)
+      route.pointA = points[0]
+      route.pointB = points[1]
+      document.querySelectorAll(".keys").forEach(elem => {
+        console.log("this is the elem", elem)
+        const string = elem.innerHTML.split(" ")
+        const key = string[0].slice(0, string[0].length - 1)
+        console.log(key)
+        const value = Math.round(parseFloat(string[1]))
+        route[key] = value
+        console.log("HALLLLOOOOOO", route)
+      })
 
-    axios.post("/saved-routes", route).then(response => {
-      console.log("HELLO!!!!!??")
-      console.log('waddup');
-      document.querySelector(".changeMe").innerText = 'changed after reponse';
-      window.location.replace("/saved-routes");
-    }).catch(err => {
-      console.log(err)
-    });
-  }
+      axios.post("/saved-routes", route).then(response => {
+        console.log("HELLO!!!!!??")
+        console.log('waddup');
+        document.querySelector(".changeMe").innerText = 'changed after reponse';
+        window.location.replace("/saved-routes");
+      }).catch(err => {
+        console.log(err)
+      });
+    }
 
-</script>
-
-
+  </script>
 
 
-<script src="/javascripts/axiosCall.js">
 
-</script>
+
+  <script src="/javascripts/axiosCall.js">
+
+  </script>
+
+  <footer class="footer_sr">
+
+    <div class="info">
+      <p>Direct CO2 emissions: carbon dioxide emissions produced during flight, i.e. fuel combustion</p>
+    </div>
+    <div class="info">
+      <p>Direct CH4 emissions: methane emissions produced during flight, i.e. fuel combustion</p>
+    </div>
+    <div class="info">
+      <p>Direct N2O emissions: nitrous oxide emissions produced during flight, i.e. fuel combustion</p>
+    </div>
+    <div class="info">
+      <p>Total direct emissions: all direct emissions, i.e. CO2 + CH4 + N2O
+        action and fuel delivery</p>
+
+
+    </div>
+  </footer>
+</div>
+</body>

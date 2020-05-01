@@ -1,11 +1,62 @@
+html,
 body {
-  padding: 0px;
-  margin: 0px;
+  height: 70%;
+  margin: 0;
+  position: relative;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   // background-image: url("/images/white-airliner-wing-on-top-of-sea-clouds-2007401.jpg");
   // background-size: 100%;
 }
 
+.wrapper {
+  min-height: 100%;
+  padding-bottom: 0;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer {
+  width: 100%;
+  position: absolute;
+  margin-top: -50px;
+  height: 150px;
+  background-color: #3f6e7b;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+.footer_sr {
+  width: 100%;
+  position: absolute;
+  margin-top: -50px;
+  color: white;
+  background-color: #3f6e7b;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
+.footer_saved {
+  width: 100%;
+  position: relative;
+
+  color: white;
+  background-color: #3f6e7b;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
+.info {
+  margin: 3%;
+  text-align: center;
+}
 // Main Page - Navigation Bar
 //Add a black background color to the top navigation
 
@@ -196,6 +247,14 @@ body {
   align-content: space-between;
   margin: 5%;
 }
+.userpage_sr {
+  display: flex;
+  flex-direction: column;
+  // text-align: center;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+}
 .searchfield {
   margin: 5%;
 }
@@ -268,8 +327,6 @@ body {
   background-color: #3f6e7b;
   color: #3f6e7b;
 }
-
-
 
 .footer p {
   color: white;
@@ -348,7 +405,6 @@ body {
 .searchformdeparturedestination {
   display: flex;
   justify-content: space-between;
-
 }
 
 #startpointtext {
@@ -360,7 +416,7 @@ body {
 #startpoint {
   margin-top: 15px;
   margin-bottom: 17px;
-  width: 91px
+  width: 91px;
 }
 
 #endpointtext {
@@ -384,12 +440,11 @@ body {
 .pointA {
   margin-top: 15px;
   margin-bottom: 17px;
-  width: 100px
+  width: 100px;
 }
 
 .pointB {
   margin-top: 10px;
   margin-bottom: 20px;
-  width: 90px; 
+  width: 90px;
 }
-

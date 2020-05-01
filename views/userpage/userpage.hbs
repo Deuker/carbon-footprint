@@ -2,43 +2,56 @@
 
 <nav>
   <div class="navauth">
-    <img class= "navlogo" src= "/images/logo5.png" alt="travelclever-logo">
+    <img class="navlogo" src="/images/logo5.png" alt="travelclever-logo">
     <a href="/auth/logout">Logout</a>
     <a href="/saved-routes">My saved Routes</a>
   </div>
 </nav>
+<div class="wrapper">
+  <div class="userpage">
 
-<div class="userpage">
+    <h2>Flight Carbon Footprint Calculator</h2>
+    <div class="searchformdeparturedestination">
+      <form id="searchform" action="/searchresults/" method="POST">
+        <span>
+          <label id="startpoint" for="pointA">Departure: </label>
+          <input id="startpointtext" type="text" name="pointA" placeholder="">
+        </span>
+        <span>
+          <label id="endpoint" for="pointB">Destination:</label>
+          <input id="endpointtext" type="text" name="pointB" placeholder="">
+        </span>
+        <button class="mainbtn" id="addtoroutes" type="submit">See Results</button>
+      </form>
+    </div>
 
-  <h2>Flight Carbon Footprint Calculator</h2>
-  <div class="searchformdeparturedestination">
-    <form id="searchform" action="/searchresults/" method="POST">
-      <span>
-        <label id="startpoint" for="pointA">Departure: </label>
-        <input id="startpointtext" type="text" name="pointA" placeholder="">
-      </span>
-      <span>
-        <label id="endpoint" for="pointB">Destination:</label>
-        <input id="endpointtext" type="text" name="pointB" placeholder="">
-      </span>
-      <button class="mainbtn" id="addtoroutes" type="submit">See Results</button>
-    </form>
+
+    <p>* Emissions are calculated based on the DEFRA methodologies for passenger and freight transport. These
+      methodologies contain emissions factors which describe the rate at which greenhouse gas emissions are produced
+      in
+      relation to distance travelled and - in the case of freight - the quantity of goods freighted.</p>
+
+
+
+
+
   </div>
+  <footer class="footer">
+
+    <div class="info">
+      <p>Direct CO2 emissions: carbon dioxide emissions produced during flight, i.e. fuel combustion</p>
+    </div>
+    <div class="info">
+      <p>Direct CH4 emissions: methane emissions produced during flight, i.e. fuel combustion</p>
+    </div>
+    <div class="info">
+      <p>Direct N2O emissions: nitrous oxide emissions produced during flight, i.e. fuel combustion</p>
+    </div>
+    <div class="info">
+      <p>Total direct emissions: all direct emissions, i.e. CO2 + CH4 + N2O
+        action and fuel delivery</p>
 
 
-  <p>* Emissions are calculated based on the DEFRA methodologies for passenger and freight transport. These
-    methodologies contain emissions factors which describe the rate at which greenhouse gas emissions are produced
-    in
-    relation to distance travelled and - in the case of freight - the quantity of goods freighted.</p>
-
-
-</div>
-
-<div class="footer">
-  <p>direct CO2 emissions: carbon dioxide emissions produced during flight, i.e. fuel combustion</p>
-  <p>direct CH4 emissions: methane emissions produced during flight, i.e. fuel combustion</p>
-  <p>direct N2O emissions: nitrous oxide emissions produced during flight, i.e. fuel combustion</p>
-  <p>total direct emissions: all direct emissions, i.e. CO2 + CH4 + N2O</p>
-  <p>indirect emissions: emissions associated with stages in the fuel production chain such as raw material extraction and fuel delivery</p>
-  <p>total or ‘life cycle’: the total of direct and indirect emissions</p>
-</div>
+    </div>
+  </footer>
+  </body>
